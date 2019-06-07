@@ -1,0 +1,79 @@
+# 1
+  rails new YOUR_APP_NAME [--webpack] [-T] [--database=postgres]
+
+# 2
+  3-2-1
+
+# 3
+  db/migrate/20190607154158_create_songs.rb
+  create    app/models/song.rb
+
+  rails db:migrate
+
+# 5
+  song = Song.new
+  song.valid?
+    # false
+  song.errors.messages
+    # {title: ["can't be blank"]}
+  song.title = "Kiss from a Rose"
+  song.valid?
+    # true
+
+# 6
+  3 - 1 - 2 - 4
+
+# 7
+  VERB    PATH             BODY   HEADERS
+  GET     "cocktails/:id"
+  POST    "cocktails"
+
+# 8
+  No. Different verbs
+
+# 9
+  Get is a request to receive information
+  Post is a request to send information
+
+post "cocktails/:cocktail_id/doses"
+
+# 10
+  @songs = Song.where(title: params[:query])
+
+# 11
+  @songs = Song.where(title: params[:name])
+
+# 12
+  get 'songs/new', to: 'songs#new'
+  get 'songs/:id', to: 'songs#show'
+  get 'songs', to: 'songs#index'
+  post 'songs', to: 'songs#create'
+  get 'songs/:id/edit', to: 'songs#edit'
+  patch 'songs/:id', to: 'songs#update'
+  delete 'songs/:id', to: 'songs#destroy'
+
+# 13
+  rails routes
+
+# 14
+  rails g controller songs
+
+# 18
+
+<form action="/songs" method="post">
+  <input type="text" name="song[title]" value=" ">
+  <input type="submit" value="Create song">
+</form>
+
+# 19
+<form action="/songs/:id" method="patch">
+  <input type="text" name="song[title]" value="Hey Jude">
+  <input type="submit" value="Create song">
+</form>
+
+
+
+
+
+
+
